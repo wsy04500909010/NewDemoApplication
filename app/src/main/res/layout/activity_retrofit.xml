@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/btn_translation_ori"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="获取翻译示例按钮(原数据)"/>
+
+    <Button
+        android:id="@+id/btn_translation"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="获取翻译示例按钮(JSON已解析)"/>
+
+    <Button
+        android:id="@+id/btn_https_taobao"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="获取taobao商品信息按钮(Https协议),未成功"/>
+
+    <Button
+        android:id="@+id/btn_http_post"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="获取翻译示例按钮(post方式)"/>
+</LinearLayout>

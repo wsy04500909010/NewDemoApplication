@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context="com.wsy.newdemoapplication.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_okhttp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Okhttp"/>
+
+            <Button
+                android:id="@+id/btn_retrofit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Retrofit"/>
+
+            <Button
+                android:id="@+id/btn_volley"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Volley"/>
+
+            <Button
+                android:id="@+id/btn_viewstub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Viewstub"/>
+
+            <Button
+                android:id="@+id/btn_customview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="自定义view"/>
+
+            <Button
+                android:id="@+id/btn_customviewgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="自定义viewgroup"/>
+
+            <Button
+                android:id="@+id/btn_sqlite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="数据库操作"/>
+
+            <Button
+                android:id="@+id/btn_proxy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="动态代理模式"/>
+
+            <Button
+                android:id="@+id/btn_kotlin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="kotlin"/>
+
+            <Button
+                android:id="@+id/btn_focus_gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="gridview"/>
+
+            <Button
+                android:id="@+id/btn_greendao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="greendao"/>
+
+            <Button
+                android:id="@+id/btn_viewpagers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="viewpager_fragmentViewpager"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

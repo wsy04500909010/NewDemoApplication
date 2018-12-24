@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_insert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="添加一条数据"/>
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="查看step = 1的数据"/>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这里显示数据库查询结果"/>
+
+    <Button
+        android:id="@+id/btn_add_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="User表添加信息"/>
+
+    <Button
+        android:id="@+id/btn_fix_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="修改User表信息"/>
+
+    <Button
+        android:id="@+id/btn_delete_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="User表信息删除"/>
+
+    <TextView
+        android:id="@+id/tv_result_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这里显示User查询结果"/>
+
+
+
+
+    <Button
+        android:id="@+id/btn_getSMS_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="获取短信条数"/>
+
+    <TextView
+        android:id="@+id/tv_result_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这里显示短信查询结果"/>
+
+</LinearLayout>

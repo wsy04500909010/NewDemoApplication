@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyCircle">
+
+        <attr name="circle_color" format="color"></attr>
+
+    </declare-styleable>
+
+
+    <!--   Ⅰ、textSize——对应中间文本文字的大小-->
+    <!--　　Ⅱ、text——对应中间文本-->
+    <!--　　Ⅲ、circleColor——对应内圆的颜色-->
+    <!--　　Ⅳ、arcColor——对应外环的颜色-->
+    <!--　　Ⅴ、textColor——对应文本的颜色-->
+    <!--　　Ⅵ、startAngle——对应外环的起始角度-->
+    <!--　　Ⅶ、sweepAngle——对应外环扫描角度-->
+    <declare-styleable name="PercentRound">
+
+        <attr name="out_color" format="color"></attr>
+        <attr name="in_color" format="color"></attr>
+        <attr name="text" format="string"></attr>
+        <attr name="textSize" format="dimension"></attr>
+        <attr name="textColor" format="color"></attr>
+        <attr name="small_text" format="string"></attr>
+        <attr name="small_textSize" format="dimension"></attr>
+        <attr name="small_textColor" format="color"></attr>
+        <attr name="startAngle" format="integer"></attr>
+        <attr name="sweepAngle" format="integer"></attr>
+
+        <attr name="maxValue" format="float"></attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="AutoWrapLayout">
+        <attr name="layout_position">
+
+            <enum name="center" value="0"></enum>
+            <enum name="leftTop" value="1"></enum>
+            <enum name="rightTop" value="2"></enum>
+            <enum name="leftBottom" value="3"></enum>
+            <enum name="rightBottom" value="4"></enum>
+        </attr>
+
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1790px"
+            android:orientation="vertical">
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="以下全是自定义View"-->
+            <!--android:textColor="@color/colorAccent"-->
+            <!--android:textSize="18sp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<com.wsy.newdemoapplication.view.MyCircle-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="#ff2200"-->
+            <!--android:padding="10dp"-->
+            <!--app:circle_color="#FF4081" />-->
+
+            <!--</LinearLayout>-->
+            <Button
+                android:id="@+id/btn_rotate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点击执行旋转动画"
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/btn_translation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点击执行平移动画"
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/btn_scale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点击执行缩放动画"
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/btn_alpha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点击执行透明度动画"
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/btn_animation_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点击执行组合动画"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <com.wsy.newdemoapplication.view.PercentRound
+                    android:id="@+id/percentView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#f2f2f2"
+                    app:in_color="#FF3453"
+                    app:out_color="#33bb34"
+                    app:small_text="元"
+                    app:small_textColor="#00d"
+                    app:small_textSize="8sp"
+                    app:startAngle="-180"
+                    app:sweepAngle="180"
+                    app:text="444"
+                    app:textColor="#00d"
+                    app:textSize="16sp"/>
+
+                <Button
+                    android:id="@+id/btn_animation_bujian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点击执行组合补间动画"
+                    android:textSize="16sp"/>
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="40px"
+                    android:showText="true"
+                    android:textColor="#fff"
+                    android:textOff="关闭"
+                    android:textOn="打开"
+                    android:thumb="@drawable/switch_custom_thumb_selector"
+                    android:track="@drawable/switch_custom_track_selector"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
