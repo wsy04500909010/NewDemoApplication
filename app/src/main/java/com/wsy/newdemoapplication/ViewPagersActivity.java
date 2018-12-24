@@ -1,5 +1,6 @@
 package com.wsy.newdemoapplication;
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -24,6 +25,8 @@ public class ViewPagersActivity extends BaseActivity {
     ViewPager viewPager;
     @BindView(R.id.btn_viewpager)
     Button btn_viewpager;
+    @BindView(R.id.tablayout)
+    TabLayout tablayout;
     @BindView(R.id.btn_fragmentviewpager)
     Button btn_fragmentviewpager;
 
@@ -69,8 +72,15 @@ public class ViewPagersActivity extends BaseActivity {
         datas.add("3");
         datas.add("4");
         datas.add("5");
-        pagerOnlyAdapter = new PagerOnlyAdapter(datas,ViewPagersActivity.this);
+        datas.add("6");
+        datas.add("7");
+        datas.add("8");
+        datas.add("9");
+        datas.add("10");
+        pagerOnlyAdapter = new PagerOnlyAdapter(datas, ViewPagersActivity.this);
         viewPager.setAdapter(pagerOnlyAdapter);
+
+        tablayout.setupWithViewPager(viewPager);
     }
 
     @Override

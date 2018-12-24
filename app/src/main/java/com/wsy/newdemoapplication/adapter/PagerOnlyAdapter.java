@@ -2,6 +2,7 @@ package com.wsy.newdemoapplication.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,5 +56,17 @@ public class PagerOnlyAdapter extends PagerAdapter {
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
+    }
+
+    /**和 tablelayout联动时 重写该方法
+     *
+     * @param position
+     * @return
+     */
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+
+        return titles.get(position);
     }
 }
