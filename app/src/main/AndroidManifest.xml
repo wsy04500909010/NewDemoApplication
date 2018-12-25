@@ -41,6 +41,7 @@
         </activity>
         <activity android:name=".GreenDaoActivity"/>
         <activity android:name=".ViewPagersActivity"/>
+        <activity android:name=".GreenDao2Activity"/>
     </application>
 
 </manifest>

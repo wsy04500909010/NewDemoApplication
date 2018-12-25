@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1对1"/>
+
+        <Button
+            android:id="@+id/btn_2"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1对多"/>
+
+        <Button
+            android:id="@+id/btn_3"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="多对多"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_1to1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1对1  userbean 和 otheruserinfobean 两张表"
+                    android:textSize="20sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_insert_1to1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1对1插入数据"/>
+
+                    <Button
+                        android:id="@+id/btn_search_1to1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1对1查询两个表数据"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_result_userbean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="userbean 表现有数据"/>
+
+                <TextView
+                    android:id="@+id/tv_result_otheruserinfobean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="otheruserinfobean 表现有数据"/>
+
+                <EditText
+                    android:id="@+id/et_id_userbean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="输入userbean表要删除项的主键"/>
+
+                <Button
+                    android:id="@+id/btn_delete_userbean_1to1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1对1 删除1条userbean数据"/>
+
+                <EditText
+                    android:id="@+id/et_id_otheruserinfobean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="输入otheruserinfobean表要删除项的主键"/>
+
+                <Button
+                    android:id="@+id/btn_delete_otheruserinfobean_1to1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1对1 删除1条otheruserinfobean数据"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_1tomany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1对多  LeaderBean 和 MemberBean 两张表"
+                    android:textSize="20sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_insert_1tomany"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1对多插入数据"/>
+
+                    <Button
+                        android:id="@+id/btn_search_1tomany"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1对多查询两个表数据"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_result_leaderbean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="leaderbean 表现有数据"/>
+
+                <TextView
+                    android:id="@+id/tv_result_memberbean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="memberbean 表现有数据"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="删除过程也同1对1 没有关联删除的操作"
+                    android:textSize="18sp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

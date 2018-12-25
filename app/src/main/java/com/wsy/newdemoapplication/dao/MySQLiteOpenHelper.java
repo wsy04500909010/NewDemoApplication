@@ -42,6 +42,8 @@ public class MySQLiteOpenHelper extends DaoMaster.OpenHelper {
             //注意此处的参数StudentDao.class，很重要（一开始没注意，给坑了一下），它就是需要升级的table的Dao,
             //不填的话数据丢失，
             // 这里可以放多个Dao.class，也就是可以做到很多table的安全升级，Good~
-        }, TestGreenDaoBeanDao.class, UserDao.class, ClazzDao.class);
+        }, TestGreenDaoBeanDao.class, UserDao.class, ClazzDao.class,
+                UserBeanDao.class,OtherUserInfoBeanDao.class,
+                LeaderBeanDao.class,MemberBeanDao.class);
     }
 }

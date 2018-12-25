@@ -1,6 +1,7 @@
 package com.wsy.newdemoapplication;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -49,11 +50,12 @@ public class GreenDaoActivity extends BaseActivity {
     TextView tv_result_user;
     @BindView(R.id.btn_delete_user)
     Button btn_delete_user;
+    @BindView(R.id.btn_1to1)
+    Button btn_1to1;
 
     GreenDaoManager gm;
     int REQUEST_SMS_PERMISSION = 1;
     int REQUEST_WRITESTORAGE_PERMISSION = 2;
-
 
     int index = 0;
 
@@ -61,6 +63,10 @@ public class GreenDaoActivity extends BaseActivity {
     protected void init() {
         initData();
 
+        btn_1to1.setOnClickListener((v) -> {
+            Intent intent = new Intent(GreenDaoActivity.this, GreenDao2Activity.class);
+            startActivity(intent);
+        });
 
         btn_insert.setOnClickListener(new View.OnClickListener() {
             @Override

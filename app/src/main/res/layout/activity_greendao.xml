@@ -51,7 +51,13 @@
         android:layout_height="wrap_content"
         android:text="这里显示User查询结果"/>
 
-
+    <Button
+        android:id="@+id/btn_1to1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="跳转多表关联表页面"
+        android:background="#ffa"/>
 
 
     <Button
@@ -59,12 +65,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="获取短信条数"/>
+        android:layout_marginTop="20dp"
+        android:text="获得短信数量"/>
 
     <TextView
         android:id="@+id/tv_result_sms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="这里显示短信查询结果"/>
+        android:text="查询结果这里显示"
+        />
+
 
 </LinearLayout>
