@@ -2,6 +2,7 @@ package com.wsy.newdemoapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -9,13 +10,20 @@ import android.widget.Button;
 import com.wsy.newdemoapplication.base.BaseActivity;
 import com.wsy.newdemoapplication.bean.ParcelableBean;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import butterknife.BindView;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 
 
 public class MainActivity extends BaseActivity {
@@ -112,6 +120,76 @@ public class MainActivity extends BaseActivity {
                 Log.e(TAG, "onComplete" + "\n");
             }
         });
+
+
+        List<String> list = new ArrayList<String>();
+        for (int i = 0; i < 10; i++) {
+            list.add("Hello" + i);
+        }
+        Observable<String> observable = Observable.fromIterable((Iterable<String>) list);
+
+        observable.subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                Log.e("consumer1", s);
+            }
+        });
+
+        Observable<Object> observable2 = Observable.just(list).flatMap(new Function<List<String>, ObservableSource<?>>() {
+            @Override
+            public ObservableSource<?> apply(List<String> strings) throws Exception {
+                return Observable.fromIterable(strings);
+            }
+        });
+
+
+        observable2.subscribe(new Consumer<Object>() {
+            @Override
+            public void accept(Object s) throws Exception {
+                Log.e("consumer2", String.valueOf(s));
+            }
+        });
+
+
+        Observable<Integer> observable3 = Observable.just("hello").map(new Function<String, Integer>() {
+            @Override
+            public Integer apply(String s) throws Exception {
+                return s.length();
+            }
+        });
+        observable3.subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) throws Exception {
+                Log.e("consumer3", String.valueOf(integer));
+            }
+        });
+//
+//
+//
+//        Observable<Long> observable4 = Observable.interval(2, TimeUnit.SECONDS);
+//        Observer<Long> observer = new Observer<Long>() {
+//            @Override
+//            public void onSubscribe(Disposable d) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(Long aLong) {
+//                System.out.println(aLong);
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//
+//            }
+//        };
+//        SystemClock.sleep(10000);//睡眠10秒后，才进行订阅  仍然从0开始，表示Observable内部逻辑刚开始执行
+//        observable4.subscribe(observer);
 
 
 //        btn_okhttp = (Button) findViewById(R.id.btn_okhttp);
