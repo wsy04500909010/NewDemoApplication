@@ -55,6 +55,8 @@ public class MainActivity extends BaseActivity {
     Button btn_focus_gridview;
     @BindView(R.id.btn_greendao)
     Button btn_greendao;
+    @BindView(R.id.btn_animation)
+    Button btn_animation;
 
 
     @Override
@@ -278,6 +280,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(MainActivity.this, GreenDaoActivity.class);
+                startActivity(intent1);
+            }
+        });
+        btn_animation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MainActivity.this, AnimationActivity.class);
                 startActivity(intent1);
             }
         });
