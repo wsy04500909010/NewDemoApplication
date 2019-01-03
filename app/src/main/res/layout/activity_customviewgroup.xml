@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-    xmlns:wsy="http://schemas.android.com/apk/res-auto"
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
+              xmlns:wsy="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <com.wsy.newdemoapplication.view.FourButtonLayout
         android:layout_width="wrap_content"
@@ -17,29 +14,25 @@
             android:layout_width="50dp"
             android:layout_height="80dp"
             android:layout_margin="10dp"
-            android:text="1" />
+            android:text="1"/>
 
         <Button
             android:layout_width="50dp"
             android:layout_height="80dp"
-            android:text="1" />
+            android:text="1"/>
 
         <Button
             android:layout_width="50dp"
             android:layout_height="80dp"
-            android:text="1" />
+            android:text="1"/>
 
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="80dp"
-            android:text="1" />
 
     </com.wsy.newdemoapplication.view.FourButtonLayout>
 
     <com.wsy.newdemoapplication.view.AutoWrapLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        >
 
         <Button
             android:layout_width="wrap_content"
@@ -49,17 +42,18 @@
             android:text="按钮1"
             android:textColor="#ffffff"
             android:textSize="20dip"
-            wsy:layout_position="rightTop" />
+            wsy:layout_position="rightTop"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#8B0A50"
             android:padding="10dip"
-            android:text="按钮2222222222222"
+            android:singleLine="true"
+            android:text="按钮222222224322钮222228822299987654321"
             android:textColor="#ffffff"
             android:textSize="20dip"
-            wsy:layout_position="rightBottom" />
+            wsy:layout_position="rightBottom"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -68,7 +62,7 @@
             android:padding="15dip"
             android:text="按钮333333"
             android:textColor="#ffffff"
-            android:textSize="20dip" />
+            android:textSize="20dip"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -77,7 +71,7 @@
             android:padding="10dip"
             android:text="按钮4"
             android:textColor="#ffffff"
-            android:textSize="10dip" />
+            android:textSize="10dip"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -86,7 +80,7 @@
             android:padding="15dip"
             android:text="按钮5"
             android:textColor="#ffffff"
-            android:textSize="20dip" />
+            android:textSize="20dip"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -95,9 +89,15 @@
             android:padding="20dip"
             android:text="按钮6"
             android:textColor="#ffffff"
-            android:textSize="20dip" />
+            android:textSize="20dip"/>
 
 
     </com.wsy.newdemoapplication.view.AutoWrapLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/colorPrimary"
+        />
 
 </LinearLayout>

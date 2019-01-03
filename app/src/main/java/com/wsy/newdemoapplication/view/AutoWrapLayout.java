@@ -2,14 +2,20 @@ package com.wsy.newdemoapplication.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by WSY on 2018/10/28.
  */
 public class AutoWrapLayout extends ViewGroup {
 
+
+    int height = 0;
 
     public AutoWrapLayout(Context context) {
         super(context);
@@ -22,7 +28,89 @@ public class AutoWrapLayout extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        //没有这个定义  marging属性不起效
+        MarginLayoutParams params = null;
+
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
         measureChildren(widthMeasureSpec, heightMeasureSpec);
+
+        if (getChildCount() == 0) {
+            setMeasuredDimension(0, 0);
+        }
+//        else if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
+//            View childOne = getChildAt(0);
+//
+//            params = (MarginLayoutParams) childOne.getLayoutParams();
+//
+//            int childWidth = childOne.getMeasuredWidth();
+//            int childHeight = childOne.getMeasuredHeight();
+//            setMeasuredDimension(childWidth + params.leftMargin + params.rightMargin,
+//                    childHeight * getChildCount() + params.topMargin + params.bottomMargin);
+//        } else if (widthMode == MeasureSpec.AT_MOST) {
+//            View childOne = getChildAt(0);
+//            params = (MarginLayoutParams) childOne.getLayoutParams();
+//            int childwidth = childOne.getMeasuredWidth();
+//            setMeasuredDimension(childwidth + params.leftMargin + params.rightMargin, heightSize);
+//        }
+        else if (heightMode == MeasureSpec.AT_MOST) {
+
+            int height = 0;
+            int layoutWidth = 0; // 容器已经占据的宽度
+            int childMeasureWidth = 0;
+
+            View childView1 = getChildAt(0);
+            height += childView1.getMeasuredHeight();
+            layoutWidth += childView1.getMeasuredWidth();
+
+            for (int i = 1; i < getChildCount(); i++) {
+                View childView = getChildAt(i);
+                childMeasureWidth = childView.getMeasuredWidth();
+
+                if (layoutWidth + childMeasureWidth <= widthSize) {
+                    layoutWidth += childMeasureWidth;
+                } else {
+                    layoutWidth = childMeasureWidth;//新起一行
+                    height += childView.getMeasuredHeight();
+                }
+            }
+
+
+//            View childOne = getChildAt(0);
+//            params = (MarginLayoutParams) childOne.getLayoutParams();
+//            int childheight = childOne.getMeasuredHeight();
+            setMeasuredDimension(widthSize, height);
+        }
+
+
+//
+//        if (height == 0) {
+//            for (int i = 0; i < getChildCount(); i++) {
+//                View childView = getChildAt(i);
+//
+//                measureChild(childView, widthMeasureSpec, heightMeasureSpec);
+//
+//                childMeasureWidth = childView.getMeasuredWidth();
+//
+//                if (layoutWidth < getWidth()) {//如果一行没有排满，继续往右排列
+//                    layoutWidth += childMeasureWidth;
+//                } else {
+//
+//                    layoutWidth = 0;
+//                    Log.e("childView", "=" + childView.getMeasuredHeight());
+//                    height += childView.getMeasuredHeight();
+//                }
+//            }
+//            Log.e("height", "=" + height);
+//
+//        }
+//        setMeasuredDimension(widthMeasureSpec, height);
+
+
     }
 
     @Override
@@ -40,7 +128,7 @@ public class AutoWrapLayout extends ViewGroup {
             childMeasureWidth = child.getMeasuredWidth();
             childMeasureHeight = child.getMeasuredHeight();
 
-            if (layoutWidth < getWidth()) {//如果一行没有排满，继续往右排列
+            if (layoutWidth + childMeasureWidth <= getWidth()) {//如果一行没有排满，继续往右排列
                 l = layoutWidth;
                 r = l + childMeasureWidth;
                 t = layoutHeight;
