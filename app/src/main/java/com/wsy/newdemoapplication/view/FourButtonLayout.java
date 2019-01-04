@@ -41,7 +41,7 @@ public class FourButtonLayout extends ViewGroup {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        //没有这个定义  marging属性不起效
+        //没有这个定义  margin属性不起效
         MarginLayoutParams params = null;
 
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);

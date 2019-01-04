@@ -14,9 +14,6 @@ import java.util.List;
  */
 public class AutoWrapLayout extends ViewGroup {
 
-
-    int height = 0;
-
     public AutoWrapLayout(Context context) {
         super(context);
     }
@@ -29,7 +26,16 @@ public class AutoWrapLayout extends ViewGroup {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        //没有这个定义  marging属性不起效
+        /**
+         * 没有这个定义  margin属性不起效
+         * 如果是代码添加的子view  addview（）方式
+         * 子view
+         * ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+         * 要用MarginLayoutParams
+         * 否则  这里params = (MarginLayoutParams) childOne.getLayoutParams();类型转换时会报错
+         */
+
+
         MarginLayoutParams params = null;
 
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
@@ -84,8 +90,29 @@ public class AutoWrapLayout extends ViewGroup {
 //            params = (MarginLayoutParams) childOne.getLayoutParams();
 //            int childheight = childOne.getMeasuredHeight();
             setMeasuredDimension(widthSize, height);
-        }
+        } else if (heightMode == MeasureSpec.UNSPECIFIED) {//本viewgroup 嵌套在scrollview 中时 就会走这里
+            int height = 0;
+            int layoutWidth = 0; // 容器已经占据的宽度
+            int childMeasureWidth = 0;
 
+            View childView1 = getChildAt(0);
+            height += childView1.getMeasuredHeight();
+            layoutWidth += childView1.getMeasuredWidth();
+
+            for (int i = 1; i < getChildCount(); i++) {
+                View childView = getChildAt(i);
+                childMeasureWidth = childView.getMeasuredWidth();
+
+                if (layoutWidth + childMeasureWidth <= widthSize) {
+                    layoutWidth += childMeasureWidth;
+                } else {
+                    layoutWidth = childMeasureWidth;//新起一行
+                    height += childView.getMeasuredHeight();
+                }
+            }
+
+            setMeasuredDimension(widthSize, height);
+        }
 
 //
 //        if (height == 0) {
