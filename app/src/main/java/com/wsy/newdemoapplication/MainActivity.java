@@ -1,15 +1,27 @@
 package com.wsy.newdemoapplication;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.SystemClock;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.wsy.newdemoapplication.base.BaseActivity;
 import com.wsy.newdemoapplication.bean.ParcelableBean;
+import com.wsy.newdemoapplication.dao.GreenDaoManager;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +42,8 @@ public class MainActivity extends BaseActivity {
 
     public static String TAG;
 
-
+    @BindView(R.id.btn_IO)
+    Button btn_IO;
     @BindView(R.id.btn_viewpagers)
     Button btn_viewpagers;
     @BindView(R.id.btn_okhttp)
@@ -124,6 +137,34 @@ public class MainActivity extends BaseActivity {
         });
 
 
+        Observable.empty().subscribe(
+                new Observer<Object>() {
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Object o) {
+                        Log.e("Observable.empty()", "onNext");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("Observable.empty()", "onError");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.e("Observable.empty()", "onComplete");
+                    }
+                }
+        );
+
+        Observable.never().subscribe(i -> System.out.println("next"), i -> System.out.println("error"), () -> System.out.println("complete"));
+        Observable.error(new Exception()).subscribe(i -> Log.e("Observable.error()", "next"), i -> Log.e("Observable.error()", "error"), () -> Log.e("Observable.error()", "complete"));
+
         List<String> list = new ArrayList<String>();
         for (int i = 0; i < 10; i++) {
             list.add("Hello" + i);
@@ -199,6 +240,14 @@ public class MainActivity extends BaseActivity {
 //        btn_volley = (Button) findViewById(R.id.btn_volley);
 //        btn_viewstub = (Button) findViewById(R.id.btn_viewstub);
 
+
+        btn_IO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(MainActivity.this, IOActivity.class);
+                startActivity(intent1);
+            }
+        });
         btn_viewpagers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -291,6 +340,5 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-
 
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_writetofile_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="字节方式向文件写入"/>
+
+    <Button
+        android:id="@+id/btn_readfromfile_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="字节方式从文件读取"/>
+
+    <TextView
+        android:id="@+id/tv_read_result_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="这里显示读取结果"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btn_writetofile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="字符方式向文件写入"/>
+
+    <Button
+        android:id="@+id/btn_readfromfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="字符方式从文件读取"/>
+
+    <TextView
+        android:id="@+id/tv_read_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="这里显示读取结果"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btn_writetofile_o"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="向文件写入序列化对象"/>
+
+    <Button
+        android:id="@+id/btn_readfromfile_o"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="从文件读取序列化对象"/>
+
+    <TextView
+        android:id="@+id/tv_read_result_o"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="这里显示读取结果"
+        android:textSize="18sp"/>
+
+</LinearLayout>
