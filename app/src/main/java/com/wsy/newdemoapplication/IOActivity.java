@@ -35,7 +35,7 @@ import butterknife.BindView;
  */
 public class IOActivity extends BaseActivity {
 
-    String applicationDirectory = "/DemoTestFiles";
+    String applicationDirectory = Constant.TestPath + "/io";
     int REQUEST_WRITESTORAGE_PERMISSION = 2;
     String lastAction = "";
 

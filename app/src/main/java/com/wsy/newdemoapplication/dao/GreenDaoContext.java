@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.wsy.newdemoapplication.Constant;
 import com.wsy.newdemoapplication.MyApplication;
 
 import java.io.File;
@@ -36,17 +37,19 @@ public class GreenDaoContext extends ContextWrapper {
     @Override
     public File getDatabasePath(String dbName) {
         String dbDir = Environment.getExternalStorageDirectory().getAbsolutePath();
-        if (TextUtils.isEmpty(dbDir)){
+        if (TextUtils.isEmpty(dbDir)) {
             Log.e("SD卡管理：", "SD卡不存在，请加载SD卡");
             return null;
         }
         File baseFile = new File(dbDir);
         // 目录不存在则自动创建目录
-        if (!baseFile.exists()){
+        if (!baseFile.exists()) {
             baseFile.mkdirs();
         }
         StringBuffer buffer = new StringBuffer();
         buffer.append(baseFile.getPath());
+        buffer.append(File.separator);
+        buffer.append(Constant.TestPath);//本应用测试统一路径
         buffer.append(File.separator);
         buffer.append(currentUserId);
         dbDir = buffer.toString();// 数据库所在目录
@@ -56,7 +59,7 @@ public class GreenDaoContext extends ContextWrapper {
         String dbPath = buffer.toString();// 数据库路径
         // 判断目录是否存在，不存在则创建该目录
         File dirFile = new File(dbDir);
-        if (!dirFile.exists()){
+        if (!dirFile.exists()) {
             dirFile.mkdirs();
         }
         // 数据库文件是否创建成功
@@ -103,7 +106,7 @@ public class GreenDaoContext extends ContextWrapper {
      * android.database.DatabaseErrorHandler)
      */
     @Override
-    public SQLiteDatabase openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory,DatabaseErrorHandler errorHandler) {
+    public SQLiteDatabase openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory, DatabaseErrorHandler errorHandler) {
         SQLiteDatabase result = SQLiteDatabase.openOrCreateDatabase(getDatabasePath(name), factory);
 
         return result;
