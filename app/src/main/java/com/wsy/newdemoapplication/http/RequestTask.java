@@ -70,8 +70,6 @@ public class RequestTask implements Runnable {
                 }
             }
 
-        } catch (MalformedURLException e1) {
-            e1.printStackTrace();
         } catch (IOException e1) {
             e1.printStackTrace();
         } finally {

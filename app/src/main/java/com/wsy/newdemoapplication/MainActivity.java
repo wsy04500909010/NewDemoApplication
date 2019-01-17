@@ -1,8 +1,10 @@
 package com.wsy.newdemoapplication;
 
 import android.Manifest;
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -42,6 +44,8 @@ public class MainActivity extends BaseActivity {
 
     public static String TAG;
 
+    @BindView(R.id.btn_download)
+    Button btn_download;
     @BindView(R.id.btn_IO)
     Button btn_IO;
     @BindView(R.id.btn_viewpagers)
@@ -241,6 +245,13 @@ public class MainActivity extends BaseActivity {
 //        btn_viewstub = (Button) findViewById(R.id.btn_viewstub);
 
 
+        btn_download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(MainActivity.this, DownloadActivity.class);
+                startActivity(intent1);
+            }
+        });
         btn_IO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -339,6 +350,9 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent1);
             }
         });
+
+
+
     }
 
 }

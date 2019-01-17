@@ -44,6 +44,7 @@
         <activity android:name=".GreenDao2Activity"/>
         <activity android:name=".AnimationActivity"/>
         <activity android:name=".IOActivity"/>
+        <activity android:name=".DownloadActivity"/>
     </application>
 
 </manifest>

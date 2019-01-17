@@ -6,5 +6,5 @@ package com.wsy.newdemoapplication;
 public class Constant {
 
     //本应用测试统一路径
-    public static String TestPath = "DemoTestFiles";
+    public static String TestPath = "/DemoTestFiles";
 }

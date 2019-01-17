@@ -183,7 +183,7 @@ public class IOActivity extends BaseActivity {
         ByteArrayOutputStream byteArrayOutputStream = null;
 
         try {
-            fileOutputStream = new FileOutputStream(new File(getSDPath() + applicationDirectory + "/testIO.txt"));
+            fileOutputStream = new FileOutputStream(new File(getSDPath() + applicationDirectory + File.separator + "testIO.txt"));
             byteArrayOutputStream = new ByteArrayOutputStream();
 
             char[] c = {'1', '2', '3'};
