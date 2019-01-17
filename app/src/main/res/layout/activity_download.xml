@@ -8,6 +8,16 @@
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="start download"/>
+        android:text="start download（系统自带 downloadmanager）"/>
+
+
+    <Button
+        android:id="@+id/btn_okhttp_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start download（okhttp）"/>
+
+
+
 
 </LinearLayout>
