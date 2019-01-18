@@ -5,12 +5,18 @@ import android.app.ProgressDialog;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wsy.newdemoapplication.base.BaseActivity;
+import com.wsy.newdemoapplication.bean.DownloadHelpBean;
+import com.wsy.newdemoapplication.runnable.DownloadRunnable;
 import com.wsy.newdemoapplication.util.OkhttpDownloadUtil;
 
 import java.io.File;
@@ -28,12 +34,44 @@ public class DownloadActivity extends BaseActivity {
     @BindView(R.id.btn_okhttp_download)
     Button btn_okhttp_download;
 
+    @BindView(R.id.btn_start_download)
+    Button btn_start_download;
+    @BindView(R.id.btn_pause_download)
+    Button btn_pause_download;
+    @BindView(R.id.progressbar)
+    ProgressBar progressbar;
+    @BindView(R.id.tv_jindu)
+    TextView tv_jindu;
+
+    private DownloadHelpBean info;//任务信息
+    private DownloadRunnable runnable;//下载任务
+
 
     private String sourceUrl = "http://dldir1.qq.com/dlomg/weishi/weishi_guanwang.apk";
     private DownloadManager manager;
     private long downloadId;
 
     ProgressDialog progressDialog;
+
+    //用于更新进度的Handler
+    private Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            //使用Handler制造一个200毫秒为周期的循环
+            handler.sendEmptyMessageDelayed(1, 200);
+            //计算下载进度
+            int l = (int) ((float) info.getCompletedLen() / (float) info.getContentLen() * 100);
+            //设置进度条进度
+            progressbar.setProgress(l);
+
+            tv_jindu.setText(l + "%");
+
+            if (l >= 100) {//当进度>=100时，取消Handler循环
+                handler.removeCallbacksAndMessages(null);
+            }
+            return true;
+        }
+    });
 
 
     @Override
@@ -42,6 +80,16 @@ public class DownloadActivity extends BaseActivity {
 //        RandomAccessFile 在这种文件类型中可以在任意位置进行write和read
 
         manager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+
+
+        //实例化任务信息对象
+        info = new DownloadHelpBean("duandian.apk"
+                , Environment.getExternalStorageDirectory().getAbsolutePath()
+                + Constant.TestPath + "/duandian_Download/"
+                , sourceUrl);
+        //设置进度条的最大值
+        progressbar.setMax(100);
+
 
         btn_start.setOnClickListener(v -> {
             DownloadManager.Query query = new DownloadManager.Query();
@@ -96,7 +144,7 @@ public class DownloadActivity extends BaseActivity {
                             }
                         });
 
-                        Log.e("okhttpdownload","complete");
+                        Log.e("okhttpdownload", "complete");
 
                     }
 
@@ -113,6 +161,28 @@ public class DownloadActivity extends BaseActivity {
             }
         });
 
+        btn_start_download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //创建下载任务
+                runnable = new DownloadRunnable(info);
+                //开始下载任务
+                new Thread(runnable).start();
+                //开始Handler循环
+                handler.sendEmptyMessageDelayed(1, 200);
+
+            }
+        });
+
+        btn_pause_download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //调用DownloadRunnable中的stop方法，停止下载
+                runnable.stop();
+                runnable = null;//强迫症，不用的对象手动置空
+            }
+        });
+
     }
 
     @Override
@@ -120,4 +190,15 @@ public class DownloadActivity extends BaseActivity {
         setContentView(R.layout.activity_download);
 
     }
+
+    @Override
+    protected void onDestroy() {
+        //在Activity销毁时移除回调和msg，并置空，防止内存泄露
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+            handler = null;
+        }
+        super.onDestroy();
+    }
+
 }
