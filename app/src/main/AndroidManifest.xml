@@ -46,11 +46,15 @@
         <activity android:name=".IOActivity"/>
         <activity android:name=".DownloadActivity"/>
 
+
+
         <receiver android:name=".receiver.DownloadCompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
             </intent-filter>
         </receiver>
+
+        <activity android:name=".AppsActivity"/>
 
     </application>
 
