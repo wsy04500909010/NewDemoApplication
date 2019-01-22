@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/drama_detail_focus_sub"
             android:text="测试"
             android:textColor="@color/item_back"
             android:textSize="18sp"/>
