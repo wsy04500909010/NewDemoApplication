@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wsy.newdemoapplication.R;
@@ -32,6 +33,9 @@ public class AppsAdapter<T> extends RecyclerView.Adapter<AppsAdapter.ViewHolder>
 
     private List<T> mList = new ArrayList<>();
 
+    public List<T> getmList() {
+        return mList;
+    }
 
     public AppsAdapter(List<T> datas) {
         mList.clear();
@@ -50,12 +54,11 @@ public class AppsAdapter<T> extends RecyclerView.Adapter<AppsAdapter.ViewHolder>
         this.onItemSelectedListener = onItemSelectedListener;
     }
 
-    public void setData(List<T> data){
+    public void setData(List<T> data) {
         mList.clear();
         mList.addAll(data);
         notifyDataSetChanged();
     }
-
 
     @NonNull
     @Override
@@ -64,13 +67,19 @@ public class AppsAdapter<T> extends RecyclerView.Adapter<AppsAdapter.ViewHolder>
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_apps_recyclerview, parent, false);
         ViewHolder holder = new ViewHolder(view);
 
-        holder.tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onItemClickListener.onItemClick(v);
-            }
-        });
-        holder.iv_icon.setOnClickListener(new View.OnClickListener() {
+//        holder.tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onItemClickListener.onItemClick(v);
+//            }
+//        });
+//        holder.iv_icon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onItemClickListener.onItemClick(v);
+//            }
+//        });
+        holder.layout_content.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onItemClickListener.onItemClick(v);
@@ -89,6 +98,8 @@ public class AppsAdapter<T> extends RecyclerView.Adapter<AppsAdapter.ViewHolder>
 //        holder.tv.setTag(position);
 
         holder.iv_icon.setImageDrawable(icon);
+
+        holder.layout_content.setTag(position);
 
         /** 设置Item的Selected事件 */
 //        holder.tv.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -113,11 +124,13 @@ public class AppsAdapter<T> extends RecyclerView.Adapter<AppsAdapter.ViewHolder>
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        LinearLayout layout_content;
         ImageView iv_icon;
         TextView tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            layout_content = itemView.findViewById(R.id.layout_content);
             iv_icon = itemView.findViewById(R.id.iv_icon);
             tv = itemView.findViewById(R.id.tv);
         }

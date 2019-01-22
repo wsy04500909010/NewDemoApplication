@@ -1,9 +1,12 @@
 package com.wsy.newdemoapplication;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.wsy.newdemoapplication.base.BaseActivity;
 import com.wsy.newdemoapplication.scanapps.ApkTool;
@@ -42,7 +45,6 @@ public class AppsActivity extends BaseActivity implements AppsAdapter.OnItemClic
         rv.setAdapter(appsAdapter);
 
 
-
         initData();
 
     }
@@ -76,6 +78,27 @@ public class AppsActivity extends BaseActivity implements AppsAdapter.OnItemClic
 
     @Override
     public void onItemClick(View v) {
+        int position = (int) v.getTag();
+        Toast.makeText(AppsActivity.this, "点击的是" + ((MyAppInfo) appsAdapter.getmList().get(position)).getAppName(), Toast.LENGTH_SHORT).show();
 
+        startThridApp(this, ((MyAppInfo) appsAdapter.getmList().get(position)).getAppName());
+    }
+
+
+    /**
+     * 通过包名启动第三方app
+     *
+     * @param context
+     * @param packageName
+     */
+    public static void startThridApp(Context context, String packageName) {
+        try {
+
+            Intent minIntent = context.getPackageManager()
+                    .getLaunchIntentForPackage(packageName);
+            context.startActivity(minIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
