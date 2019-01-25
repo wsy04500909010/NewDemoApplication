@@ -44,6 +44,8 @@ public class MainActivity extends BaseActivity {
 
     public static String TAG;
 
+    @BindView(R.id.btn_databinding)
+    Button btn_databinding;
     @BindView(R.id.btn_app)
     Button btn_app;
     @BindView(R.id.btn_download)
@@ -247,6 +249,13 @@ public class MainActivity extends BaseActivity {
 //        btn_viewstub = (Button) findViewById(R.id.btn_viewstub);
 
 
+        btn_databinding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(MainActivity.this, DataBindingActivity.class);
+                startActivity(intent1);
+            }
+        });
         btn_app.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

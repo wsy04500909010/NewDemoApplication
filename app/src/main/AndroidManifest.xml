@@ -55,6 +55,7 @@
         </receiver>
 
         <activity android:name=".AppsActivity"/>
+        <activity android:name=".DataBindingActivity"/>
 
     </application>
 

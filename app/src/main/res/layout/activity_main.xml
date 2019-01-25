@@ -20,6 +20,12 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btn_databinding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="进入databindingActivity"/>
+
+            <Button
                 android:id="@+id/btn_app"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

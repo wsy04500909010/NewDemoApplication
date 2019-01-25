@@ -21,15 +21,19 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+//    启用databinding
+    dataBinding{
+        enabled = true
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:27.0.2'
     compile 'io.reactivex.rxjava2:rxjava:2.1.1'
-    // Retrofit库
-    compile 'com.squareup.okhttp3:okhttp:3.4.2'
     // Okhttp库
+    compile 'com.squareup.okhttp3:okhttp:3.4.2'
+    // Retrofit库
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
@@ -37,16 +41,13 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
     compile 'com.android.support:recyclerview-v7:27.0.2'
-
-    compile 'org.greenrobot:greendao:3.2.2' // add library
+    compile 'org.greenrobot:greendao:3.2.2'
+    // add library
     compile 'org.greenrobot:greendao-generator:3.2.2'
-
     compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0'
-
     compile 'com.android.support:design:27.0.2'
-
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.12.1'
 }
 repositories {
     mavenCentral()
