@@ -10,4 +10,13 @@
         android:layout_height="wrap_content"
         android:text="ceshi" />
 
+
+    <Button
+        android:id="@+id/btn_lanjie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拦截onclick listener" />
+
+
+
 </LinearLayout>
