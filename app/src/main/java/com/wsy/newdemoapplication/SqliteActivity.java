@@ -28,6 +28,8 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
     Button btn_update;
     @BindView(R.id.btn_delete)
     Button btn_delete;
+    @BindView(R.id.btn_bookaddcolumn)
+    Button btn_bookaddcolumn;
 
     private MyDBHelper dbHelper;
 
@@ -41,6 +43,7 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
         btn_check.setOnClickListener(this);
         btn_update.setOnClickListener(this);
         btn_delete.setOnClickListener(this);
+        btn_bookaddcolumn.setOnClickListener(this);
     }
 
     @Override
@@ -118,6 +121,10 @@ public class SqliteActivity extends BaseActivity implements View.OnClickListener
 
                 sd4.delete("book",whereClause2,whereArgs2);
 
+                break;
+            case R.id.btn_bookaddcolumn:
+                dbHelper = new MyDBHelper(SqliteActivity.this,"BookStore.db",null,3);
+                dbHelper.getReadableDatabase();
                 break;
         }
     }

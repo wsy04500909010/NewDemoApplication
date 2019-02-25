@@ -46,4 +46,11 @@
         android:layout_centerInParent="true"
         android:text="Book表信息刪除" />
 
+    <Button
+        android:id="@+id/btn_bookaddcolumn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Book表增加列（数据库版本要升级）" />
+
 </LinearLayout>
