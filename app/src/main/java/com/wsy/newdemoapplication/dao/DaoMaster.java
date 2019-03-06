@@ -21,24 +21,24 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
+        LeaderBeanDao.createTable(db, ifNotExists);
         TestGreenDaoBeanDao.createTable(db, ifNotExists);
+        MemberBeanDao.createTable(db, ifNotExists);
+        OtherUserInfoBeanDao.createTable(db, ifNotExists);
         ClazzDao.createTable(db, ifNotExists);
         UserDao.createTable(db, ifNotExists);
-        OtherUserInfoBeanDao.createTable(db, ifNotExists);
         UserBeanDao.createTable(db, ifNotExists);
-        LeaderBeanDao.createTable(db, ifNotExists);
-        MemberBeanDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
+        LeaderBeanDao.dropTable(db, ifExists);
         TestGreenDaoBeanDao.dropTable(db, ifExists);
+        MemberBeanDao.dropTable(db, ifExists);
+        OtherUserInfoBeanDao.dropTable(db, ifExists);
         ClazzDao.dropTable(db, ifExists);
         UserDao.dropTable(db, ifExists);
-        OtherUserInfoBeanDao.dropTable(db, ifExists);
         UserBeanDao.dropTable(db, ifExists);
-        LeaderBeanDao.dropTable(db, ifExists);
-        MemberBeanDao.dropTable(db, ifExists);
     }
 
     /**
@@ -57,13 +57,13 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
+        registerDaoClass(LeaderBeanDao.class);
         registerDaoClass(TestGreenDaoBeanDao.class);
+        registerDaoClass(MemberBeanDao.class);
+        registerDaoClass(OtherUserInfoBeanDao.class);
         registerDaoClass(ClazzDao.class);
         registerDaoClass(UserDao.class);
-        registerDaoClass(OtherUserInfoBeanDao.class);
         registerDaoClass(UserBeanDao.class);
-        registerDaoClass(LeaderBeanDao.class);
-        registerDaoClass(MemberBeanDao.class);
     }
 
     public DaoSession newSession() {
