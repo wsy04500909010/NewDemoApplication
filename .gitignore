@@ -1,4 +1,7 @@
 
 .gradle/*
 .idea/*
+
 NewDemoApplication.iml
+app/release/*
+app/.DS_Store

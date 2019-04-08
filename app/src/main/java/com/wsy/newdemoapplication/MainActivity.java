@@ -44,6 +44,8 @@ public class MainActivity extends BaseActivity {
 
     public static String TAG;
 
+    @BindView(R.id.btn_download_img)
+    Button btn_download_img;
     @BindView(R.id.btn_databinding)
     Button btn_databinding;
     @BindView(R.id.btn_app)
@@ -248,6 +250,13 @@ public class MainActivity extends BaseActivity {
 //        btn_volley = (Button) findViewById(R.id.btn_volley);
 //        btn_viewstub = (Button) findViewById(R.id.btn_viewstub);
 
+        btn_download_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MainActivity.this, DownImageActivity.class);
+                startActivity(intent1);
+            }
+        });
 
         btn_databinding.setOnClickListener(new View.OnClickListener() {
             @Override
